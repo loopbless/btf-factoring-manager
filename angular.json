@@ -9,7 +9,8 @@
       "projectType": "application",
       "prefix": "app",
       "schematics": {
-        "@schematics/angular:component": {
+        "@ngrx/schematics:component": {
+          "changeDetection": "OnPush",
           "styleext": "scss"
         }
       },
@@ -23,11 +24,11 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles/theme.less",
+              "src/styles/styles.scss"
             ],
             "scripts": []
           },
@@ -48,6 +49,14 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
+            },
+            "hmr": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.hmr.ts"
+                }
+              ]
             }
           }
         },
@@ -59,6 +68,10 @@
           "configurations": {
             "production": {
               "browserTarget": "btf-factoring-manager:build:production"
+            },
+            "hmr": {
+              "hmr": true,
+              "browserTarget": "btf-factoring-manager:build:hmr"
             }
           }
         },
@@ -80,7 +93,6 @@
             ],
             "scripts": [],
             "assets": [
-              "src/favicon.ico",
               "src/assets"
             ]
           }
@@ -95,6 +107,24 @@
             "exclude": [
               "**/node_modules/**"
             ]
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/btf-factoring-manager-server",
+            "main": "src/main.server.ts",
+            "tsConfig": "src/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            }
           }
         }
       }
@@ -127,5 +157,8 @@
       }
     }
   },
-  "defaultProject": "btf-factoring-manager"
+  "defaultProject": "btf-factoring-manager",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

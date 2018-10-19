@@ -16,6 +16,17 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@btf-ui-components": [
+        "dist/btf-ui-components"
+      ],
+      "@btf-ui-components/*": [
+        "dist/btf-ui-components/*"
+      ],
+      "@factoring-apis": [
+        "projects/factoring-apis/index.ts"
+      ]
+    }
   }
 }

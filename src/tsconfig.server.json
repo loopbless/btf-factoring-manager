@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app-server",
+    "baseUrl": ".",
+    "paths": {
+      "@factoring-apis": [
+        "../projects/factoring-apis/index.ts"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "entryModule": "app/app.server.module#AppServerModule"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "/oauth/token": "/auth",
+  "/account/user": "/users/1",
+  "/account/user/:id": "/users/:id"
+}
