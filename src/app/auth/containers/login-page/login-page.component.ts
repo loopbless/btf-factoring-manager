@@ -7,7 +7,7 @@ import { getLoginError, getLoginPending } from '../../reducers';
 @Component({
   selector: 'fmc-login-page',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.scss'],
+  styleUrls: ['./login-page.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginPageComponent implements OnInit {

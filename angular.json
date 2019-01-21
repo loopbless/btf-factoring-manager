@@ -11,24 +11,33 @@
       "schematics": {
         "@ngrx/schematics:component": {
           "changeDetection": "OnPush",
-          "styleext": "scss"
+          "styleext": "less"
         }
       },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/btf-factoring-manager",
+            "outputPath": "dist/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/app/styles"
+              ]
+            },
             "styles": [
-              "src/styles/theme.less",
-              "src/styles/styles.scss"
+              "src/styles/styles.less"
             ],
             "scripts": []
           },
@@ -89,7 +98,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.scss"
+              "src/styles.less"
             ],
             "scripts": [],
             "assets": [
@@ -112,7 +121,7 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/btf-factoring-manager-server",
+            "outputPath": "dist/server",
             "main": "src/main.server.ts",
             "tsConfig": "src/tsconfig.server.json"
           },

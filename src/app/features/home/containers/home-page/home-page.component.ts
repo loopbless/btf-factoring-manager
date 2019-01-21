@@ -7,7 +7,7 @@ import * as ScheduleAction from '../../actions/schedule.action';
 @Component({
   selector: 'fmc-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss'],
+  styleUrls: ['./home-page.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomePageComponent implements OnInit {
